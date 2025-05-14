@@ -1,3 +1,5 @@
+import java.io.*;
+
 public class Errors {
     public static void main(String[] args) {
         //1 - try catch (erro de divisão por zero)
@@ -23,5 +25,21 @@ public class Errors {
         } finally {
             System.out.println("Executou o finally");
         }
+
+        // verificadas e não verificadas
+
+        // verificada (compilação)
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("arquivo.txt"));
+            String linha = reader.readLine();
+            System.out.println(linha);
+        } catch (Exception e) {
+            System.out.println("Error ao ler arquivo: " + e.getMessage());
+        }
+
+        //não verificada (tempo de execução)
+        // (erro, pois o texto é null)
+        String texto = null;
+        System.out.println(texto.length());
     }
 }
