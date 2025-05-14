@@ -43,6 +43,15 @@ public class Errors {
         } catch (Exception e) {
             System.out.println("Msg: " + e.getMessage());
         }
+
+        //Exceções personalizadas
+        Banco minhaConta = new Banco(5000);
+
+        try{
+           minhaConta.sacar(5100);
+        } catch (SaldoInsuficienteException e){
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 
     public static void validarIdade(int idade){
